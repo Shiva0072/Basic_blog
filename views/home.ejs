@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title%></title>
+</head>
+<body>
+    <h1><header style="text-align: center;"><strong>Blogging Website</strong></header></h1>
+    
+    <div>
+        <ul>
+            <%for(let i of blogs){%>
+                <li>
+                    <div>
+                    <p><h2><strong>Title : <%=i.title%></strong></h2></p>
+                    <p>Added by : <%= i.name%></p>
+                    <p style="font-style: italic;">Blog : <%= i.content%></p>
+                    <p>Date : <%= i.date%></p>
+                    </div>
+                    <a href="/deleteBlog/?blogId:<%=i._id%>"><button type="button">Delete</button></a>
+                </li>
+
+            <%}%>
+        </ul>
+    </div>
+    <div>
+        <form action="/createBlog" method="POST">
+            <div>Name : <input type="text" name="name" placeholder="name"/></div></br>
+            <div>Title : <input type="text" name="title" placeholder="apt title"/></div></br>
+            <p>Content : <textarea name="blog" id="" cols="30" rows="5" placeholder="Enter your blog here"></textarea></p>
+            <p>Date : <input type="date" name="date"/></p>
+            <p><input type="submit" value="Add Blog"/></p>
+        </form>
+    </div>
+
+</body>
+</html>
